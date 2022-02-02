@@ -119,12 +119,13 @@ const cvsFiltration = (arr) => {
 const vowelsFiltration = (arr) => {
     // write your code here
 
-    function isVowel(str) {
-
-        return /[eiaou]/.test(str);
-
-    }
-    return (arr.filter(isVowel));
+    let Arr = arr.filter(data => {
+        let regex = /[aeiou]/gm;
+        if (regex.test(data)) {
+            return data;
+        }
+    });
+    return Arr;
 }
 
 // 4) ---------------------
