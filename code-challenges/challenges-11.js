@@ -58,7 +58,7 @@ function square(arr) {
 
 function fullName(arr) {
     // write your code here
-    let arr2 = arr.map((fname, lname) => fname + " " + lname);
+    let arr2 = arr.map(arr.firstName + " " + arr.lastName);
     return arr2;
 }
 
@@ -122,19 +122,12 @@ function fullName(arr) {
 
 function gradesAvg(arr) {
     // write your code here
-    var sum = 0;
-    let arr2 = arr.map(function (Arr) {
-        for (var i = 0; i < Arr.length; i++) {
-            sum += Arr[i];
-        }
-        return sum / 8;
-    }
-       
 
-        
-        
-    
 }
+
+
+
+
 
 
 // 4) ---------------------
