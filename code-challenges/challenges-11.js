@@ -58,8 +58,11 @@ function square(arr) {
 
 function fullName(arr) {
     // write your code here
-    let arr2 = arr.map((fname, lname) => fname + " " + lname);
-    return arr2;
+    let result = arr.map(element => {
+        element = (`${element.firstName} ${element.lastName}`);
+        return element;
+    })
+    return result;
 }
 
 // 3) ---------------------
@@ -122,19 +125,36 @@ function fullName(arr) {
 
 function gradesAvg(arr) {
     // write your code here
-    var sum = 0;
-    let arr2 = arr.map(function (Arr) {
-        for (var i = 0; i < Arr.length; i++) {
-            sum += Arr[i];
-        }
-        return sum / 8;
-    }
-       
 
-        
-        
-    
+    let resultArr = [];
+
+    resultArr = arr.map((element, idx) => {
+        let obj = {};
+
+        if (idx % 2 === 0) {
+            obj = {
+                firstName: element.firstName, lastName: element.lastName, gradsList: element.gradsList,
+                avg: element.gradsList.reduce((a, b) => a + b, 0) / element.gradsList.length,
+            }
+        }
+
+        else {
+            obj = {
+                firstName: element.firstName, lastNAme: element.lastNAme, gradsList: element.gradsList,
+                avg: element.gradsList.reduce((a, b) => a + b, 0) / element.gradsList.length,
+            }
+        }
+
+        return obj;
+    })
+    return resultArr;
 }
+
+
+
+
+
+
 
 
 // 4) ---------------------
@@ -205,6 +225,13 @@ function gradesAvg(arr) {
 
 function studentsResult(arr) {
     // write your code here
+    arr["result"] = "";
+
+    let resultArr = arr.map(ele => {
+        ele.result = ele.avg >= 50 ? 'Passed' : 'Failed'; return ele;
+    });
+
+    return resultArr;
 }
 
 module.exports = { square, fullName, gradesAvg, studentsResult };
