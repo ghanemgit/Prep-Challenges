@@ -39,6 +39,11 @@
 
 const objectCounter = (obj) => {
     // write your code here
+    let result = obj.reduce(function (elements) {
+        elements++;
+        return elements;
+    }, 0);
+    return result;
 
 }
 
@@ -57,6 +62,12 @@ const objectCounter = (obj) => {
 
 const stringReverse = (str) => {
     // write your code here
+    let splitedWword = str.split(' ');
+
+    let answer = splitedWword.reduce((rev, char) => char + " " + rev, '');
+    let result = answer.substring(0, answer.length - 1);
+
+    return result;
 
 }
 
@@ -100,6 +111,16 @@ const stringReverse = (str) => {
 
 const statistics = (obj) => {
     // write your code here
+    let counter = obj.reduce(function (names, name) {
+        if (name.votes_To in names) {
+            names[name.votes_To]++;
+        }
+        else {
+            names[name.votes_To] = 1;
+        }
+        return names;
+    }, {})
+    return counter;
 }
 
 
