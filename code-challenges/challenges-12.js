@@ -75,35 +75,34 @@ const oddFiltration = (arr) => {
 
 const cvsFiltration = (arr) => {
     // write your code here
-    function FinalCons(fullName, tech) {
-        this.fullName = fullName;
-        this.tech = tech;
-    }
-    var fullName = "";
-    let arr2 = [];
-    function filterByExAndTech(data) {
-        if (data.yearsOfExperience > 4 && data.tech == "JS") {
-            if (data.LastName != "null")
-                fullName = data.firstName + " " + data.LastName;
-            else {
-                fullName = data.firstName;
-                return true;
-            }
+
+    let ansArr = [];
+    let fName = '';
+    let Arr = arr.filter(element => {
+        if (element.yearsOfExperience > 4 && element.tech == "JS") {
+
+            if (element.firstName === null)
+                fName = element.LastName;
+
+            else if (element.LastName === null)
+                fName = element.firstName;
+
+            else
+                fName = `${element.firstName} ${element.LastName}`;
+
+
+            ansArr.push({ fullName: `${fName}`, tech: `${element.tech}` });
+
         }
-        let obj = new FinalCons(fullName, data.tech);
-        arr2.push(obj);
 
-    }
-    // function concatenationName(data) {
-    //     if (data.LastName != "null")
-    //         var fullName = data.firstName + " " + data.LastName;
-    //     else
-    //         fullName = data.firstName;
-    //     return fullName;
-    // }
 
-    arr.filter(filterByExAndTech);
-    return arr2;
+    });
+
+    return ansArr;
+
+
+
+
 
 }
 
@@ -118,13 +117,9 @@ const cvsFiltration = (arr) => {
 
 const vowelsFiltration = (arr) => {
     // write your code here
-
-    function isVowel(str) {
-
-        return /[eiaou]/.test(str);
-
-    }
-    return (arr.filter(isVowel));
+    let result = [];
+    result = arr.filter(element => !/(?:a|e|i|o|u)/.test(element));
+    return result;
 }
 
 // 4) ---------------------
@@ -143,6 +138,7 @@ const vowelsFiltration = (arr) => {
 
 const skillComparison = (arr1, arr2) => {
     // write your code here
+
 }
 
 
